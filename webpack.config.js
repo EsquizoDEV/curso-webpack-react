@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizer = require('css-minimizer-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
-const {cleanWebpackPlugin} = require('clean-webpack-plugin')
+const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 
 
 module.exports = {
@@ -11,7 +11,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
-        publicPath:"/",
+        publicPath:"./",
     }, 
     resolve:{
         extensions: ['.js', '.jsx'],
@@ -54,7 +54,7 @@ module.exports = {
         new CssExtractPlugin({
             filename:'[name].css'
         }),
-        new cleanWebpackPlugin()
+        new CleanWebpackPlugin()
     ],
     optimization:{
         minimize:true,
